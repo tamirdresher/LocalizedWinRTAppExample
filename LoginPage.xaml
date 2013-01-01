@@ -1,0 +1,89 @@
+﻿<Page x:Class="LocalizedWinRTAppExample.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:LocalizedWinRTAppExample"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <!--Header-->
+        <TextBlock x:Uid="LoginPageHeader"
+                   HorizontalAlignment="Left"
+                   Text="Log in"
+                   VerticalAlignment="Top"
+                   Style="{StaticResource HeaderTextStyle}" />
+
+        <Grid Background="Black"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!--username textbox-->
+            <TextBlock x:Uid="UsernameCaption"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Username"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource TitleTextStyle}" />
+            <TextBox HorizontalAlignment="Stretch"
+                     Width="300"
+                     Margin="10"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     TextWrapping="Wrap"
+                     Background="White"
+                     BorderBrush="White" />
+
+            <!--password textbox.-->
+            <TextBlock x:Uid="PasswordCaption"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource TitleTextStyle}"
+                       Text="Password"
+                       Grid.Row="1"
+                       Grid.Column="0" />
+            <PasswordBox Grid.Row="1"
+                         Grid.Column="1"
+                         Margin="10"
+                         HorizontalAlignment="Stretch"
+                         Height=""
+                         IsPasswordRevealButtonEnabled="True"
+                         Password="{Binding Path=Password, Mode=TwoWay}" />
+
+            <StackPanel Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <!--Login button-->
+                <Button x:Uid="StartButton"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="100"
+                        BorderBrush="#FFFE9024"
+                        Content="Start" />
+
+                <!--Forgot password link-->
+                <HyperlinkButton Content="Forgot Password?"
+                                 Grid.Row="3"
+                                 x:Uid="ForgotPasswordButton"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 Foreground="#FFE1E1E1" />
+
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
